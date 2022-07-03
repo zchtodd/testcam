@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
     reader.addEventListener("load", (event) => {
       sendMessage({
         scale: scale.value,
-        brightness: brightness.value,
+        brightness: 1 - brightness.value,
         data: event.target.result,
       });
       fileData = event.target.result;
@@ -29,7 +29,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (fileData.length) {
       sendMessage({
         scale: scale.value,
-        brightness: brightness.value,
+        brightness: 1 - brightness.value,
         data: fileData,
       });
     }
