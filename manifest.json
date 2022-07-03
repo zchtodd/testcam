@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "ID Test Camera",
+    "version": "1.0",
+	"host_permissions": ["https://*.berbix.com/"],
+	"permissions": ["activeTab", "scripting"],
+	"externally_connectable": {
+		"matches": [
+			"https://*.berbix.com/*"
+		]	
+	},
+    "web_accessible_resources": [
+        {
+            "resources": ["content.js"],
+            "matches": ["https://*.berbix.com/*"],
+			"all_frames": true
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
+
