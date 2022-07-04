@@ -2,11 +2,11 @@ const CANVAS_WEBCAM_MOCK_ID = "canvas-webcam-mock";
 let initialized = false;
 
 window.addEventListener("message", (event) => {
-  if (!initialized) {
-    mockWebcamWithImage(event.data.text);
-  } else {
-    updateWebcamWithImage(event.data.text);
-  }
+  if (!event.data) return;
+  if (!document.querySelector("iframe")) return;
+  setupCanvasForWebcamMock();
+  mockWebcamWithImage(event.data.text);
+  updateWebcamWithImage(event.data.text);
 });
 
 function getIframeWindow() {
@@ -97,4 +97,3 @@ function mockWebcamWithImage(message) {
   initialized = true;
 }
 
-setupCanvasForWebcamMock();
